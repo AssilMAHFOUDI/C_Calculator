@@ -1,4 +1,4 @@
-```markdown
+
 # Calculator
 
 A simple C project implementing basic arithmetic operations (addition, subtraction, multiplication, division) with unit tests using the Unity framework. The project includes a GitHub Actions workflow to run tests automatically on every push.
@@ -77,4 +77,3 @@ RUN_TEST(test_new_function);
 ## License
 
 MIT License
-```
