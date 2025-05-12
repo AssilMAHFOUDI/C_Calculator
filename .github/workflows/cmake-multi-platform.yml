@@ -1,0 +1,31 @@
+name: Calculator CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: latest
+
+    - name: Compile and run tests
+      run: |
+        gcc -o calculator_test \
+        tests/test_calculator.c \
+        src/calculator.c \
+        tests/unity.c \
+        -I include \
+        -I tests \
+        -lm
+        ./calculator_test
