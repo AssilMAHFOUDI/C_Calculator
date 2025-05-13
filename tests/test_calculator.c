@@ -28,7 +28,7 @@ void test_calc_add(void) {
 
     // Negative numbers
     TEST_ASSERT_EQUAL_INT(CALC_OK, calc_add(-1.0f, -2.0f, &result));
-    TEST_ASSERT_EQUAL_FLOAT(-4.0f, result);
+    TEST_ASSERT_EQUAL_FLOAT(-3.0f, result);
 
     // Zero
     TEST_ASSERT_EQUAL_INT(CALC_OK, calc_add(0.0f, 5.0f, &result));
