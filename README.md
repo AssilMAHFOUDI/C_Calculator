@@ -1,3 +1,4 @@
+[![Calculator CI](https://github.com/AssilMAHFOUDI/C_Calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/AssilMAHFOUDI/C_Calculator/actions/workflows/ci.yml)
 
 # Calculator
 
