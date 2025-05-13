@@ -47,13 +47,7 @@ jobs:
 
     - name: Compile tests
       run: |
-        gcc -o calculator_test.exe \
-        tests/test_calculator.c \
-        src/calculator.c \
-        tests/unity.c \
-        -I include \
-        -I tests \
-        -lm
+        gcc -o calculator_test.exe tests/test_calculator.c src/calculator.c tests/unity.c -I include -I tests -lm
 
     - name: Run tests
       run: .\calculator_test.exe
