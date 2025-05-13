@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test-ubuntu:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
       with:
         version: latest
 
-    - name: Compile and run tests
+    - name: Compile tests
       run: |
         gcc -o calculator_test \
         tests/test_calculator.c \
@@ -28,4 +28,32 @@ jobs:
         -I include \
         -I tests \
         -lm
-        ./calculator_test
+
+    - name: Run tests
+      run: ./calculator_test
+
+  test-windows:
+    runs-on: windows-latest
+    needs: test-ubuntu
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up MinGW
+      run: |
+        choco install mingw
+        echo "C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin" >> $GITHUB_PATH
+
+    - name: Compile tests
+      run: |
+        gcc -o calculator_test.exe \
+        tests/test_calculator.c \
+        src/calculator.c \
+        tests/unity.c \
+        -I include \
+        -I tests \
+        -lm
+
+    - name: Run tests
+      run: .\calculator_test.exe
